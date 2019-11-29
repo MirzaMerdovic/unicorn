@@ -1,6 +1,6 @@
 FROM mongo
 
-COPY /unicorn/run.sh /unicorn/run.sh
+COPY ./run.sh /unicorn/run.sh
 
 WORKDIR /unicorn
 

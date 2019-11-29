@@ -39,8 +39,8 @@ services:
     <<: *base-service-template
     container_name: unicorn.ctn
     build:
-      context: .
-      dockerfile: ./unicorn/Dockerfile
+      context: ./unicorn
+      dockerfile: Dockerfile
     environment:
       - MONGO_ADDRESS=mongo:80
       - RECREATE_COLLECTIONS=true

@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Premium",
+    "subscription": 100,
+    "trial": true
+  },
+  {
+    "name": "Basic",
+    "subscription": 0,
+    "trial": false
+  }
+]

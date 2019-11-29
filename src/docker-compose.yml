@@ -1,0 +1,67 @@
+version: '3.7'
+
+# Templates:
+x-base: &base-service-template
+  init: true
+  networks:
+    local:
+
+services:
+
+  portainer:
+    <<: *base-service-template
+    image: portainer/portainer:latest
+    container_name: portainer.ctn
+    command: -p :80
+    ports:
+      - "9000:80"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+
+  mongo:
+    <<: *base-service-template
+    image: mongo:latest
+    container_name: mongo.ctn
+    command: >
+      sh -c "mongod --bind_ip 0.0.0.0 --port 80"
+    ports:
+      - "27017:80"
+    volumes:
+      - mongo_data:/data/db
+    healthcheck:
+      test: echo 'db.stats().ok' | mongo mongo:80 --quiet
+      interval: 3s
+      timeout: 3s
+      retries: 7
+
+  unicorn:
+    <<: *base-service-template
+    container_name: unicorn.ctn
+    build:
+      context: .
+      dockerfile: ./unicorn/Dockerfile
+    environment:
+      - MONGO_ADDRESS=mongo:80
+      - RECREATE_COLLECTIONS=true
+    depends_on:
+      - mongo
+    volumes:
+      - type: bind
+        source: ./data
+        target: /unicorn/data
+        read_only: true
+    healthcheck:
+      test: echo 'db.stats().ok' | mongo mongo --quiet
+      interval: 15s
+      timeout: 3s
+      retries: 3
+      start_period: 1s
+
+networks:
+  local:
+    name: local
+
+volumes:
+  portainer_data:
+  mongo_data:

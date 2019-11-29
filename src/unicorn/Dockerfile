@@ -1,4 +1,4 @@
-FROM mongo
+FROM mongo:latest
 
 COPY ./run.sh /unicorn/run.sh
 

@@ -1,6 +1,7 @@
 #!/bin/sh
 
-echo 'Starting...'
+echo 'Starting... \n'
+echo "$(mongo --version) \n"
 
 # Check variables
 if [ -z "$MONGO_ADDRESS" ];
@@ -33,8 +34,6 @@ find data/* -type d | while read filename;
 do
 	DATABASE_NAME="$(basename "$filename")"
     DATABASE_INDEX="$(echo "db.getMongo().getDBNames().indexOf('$DATABASE_NAME')" | mongo "$MONGO_ADDRESS" --quiet)"
-
-	echo INFO: Current folder: "$PWD"
 
 	if [ "$DATABASE_INDEX" != "-1" ]
 	then
@@ -101,5 +100,3 @@ echo "\t\t" " (\_/                 \     \-               "
 echo "\t\t" " \/      /       (   ( \  ] /)               "
 echo "\t\t" " /      (         \   \_ \./ )               "
 echo "\t\t" " (       \         \      )  \               " "\n"
-
-sleep infinity

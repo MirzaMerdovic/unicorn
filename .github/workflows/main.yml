@@ -10,13 +10,10 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Publish to Docker Registry
-      uses: MirzaMerdovic/Publish-Docker-Github-Action@master
-      #uses: elgohr/Publish-Docker-Github-Action@master
+      uses: elgohr/Publish-Docker-Github-Action@master
       with:
-        name: mirzamerdovic/unicorn
+        name: mirzamerdovic/unicorn:1.0.0
         username: mirzamerdovic
         password: GrowOld99
-        semver: 1.0.2
-        #registry: https://index.docker.io/v1/
         dockerfile: ./src/Dockerfile
         context: ./src

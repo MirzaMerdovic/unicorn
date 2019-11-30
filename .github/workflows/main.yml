@@ -10,12 +10,11 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Publish to Docker Registry
-      #uses: elgohr/Publish-Docker-Github-Action@master
       uses: MirzaMerdovic/Publish-Docker-Github-Action@master
       with:
         name: mirzamerdovic/unicorn
-        username: mirzamerdovic
-        password: GrowOld99
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
         dockerfile: ./src/Dockerfile
         context: ./src
         semver: 1.0.0

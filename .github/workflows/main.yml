@@ -12,7 +12,7 @@ jobs:
     - name: Publish to Docker Registry
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
-        name: mirzamerdovic/unicorn:1.0.0
+        name: mirzamerdovic/unicorn
         username: mirzamerdovic
         password: GrowOld99
         dockerfile: ./src/Dockerfile

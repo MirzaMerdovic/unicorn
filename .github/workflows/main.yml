@@ -14,5 +14,6 @@ jobs:
       with:
         name: unicorn
         username: mirzamerdovic
-        password: MiMer198$
+        password: MiMer1984
         semver_tag: 1.0.1-p1
+        registry: https://index.docker.io/v1/

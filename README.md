@@ -29,7 +29,7 @@ unicorn:
       interval: 15s
       timeout: 3s
       retries: 3
-      start_period: 1s
+      start_period: 2s
 ```
 Note: :unicorn: container is dependent on mongo container and code for it was omitted for brevity sake. 
 

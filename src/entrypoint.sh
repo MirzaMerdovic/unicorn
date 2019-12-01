@@ -30,7 +30,7 @@ echo "\t" RECREATE_COLLECTIONS: $RECREATE_COLLECTIONS "\n\n"
 
 echo INFO: Current folder: "$PWD"
 
-find data/* -type d | while read filename;
+find ./imports/* -type d | while read filename;
 do
 	DATABASE_NAME="$(basename "$filename")"
     DATABASE_INDEX="$(echo "db.getMongo().getDBNames().indexOf('$DATABASE_NAME')" | mongo "$MONGO_ADDRESS" --quiet)"
@@ -42,7 +42,7 @@ do
 	  echo INFO: Database: $DATABASE_NAME does not exists
 	fi;
 
-	cd data/$DATABASE_NAME
+	cd imports/$DATABASE_NAME
 	echo INFO: Moved into folder: $PWD
 
 	find ./* -type f | while read filename;

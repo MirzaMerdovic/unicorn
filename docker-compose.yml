@@ -2,7 +2,7 @@ version: '3.7'
 
 # Templates:
 x-base: &base-service-template
-  init: true
+  #init: true
   networks:
     local:
 
@@ -37,8 +37,11 @@ services:
 
   unicorn:
     <<: *base-service-template
-    image: unicorn:latest
+    image: mirzamerdovic/unicorn:latest
     container_name: unicorn.ctn
+    build:
+      context: ./src
+      dockerfile: Dockerfile
     environment:
       - MONGO_ADDRESS=mongo:80
       - RECREATE_COLLECTIONS=true
@@ -46,8 +49,8 @@ services:
       - mongo
     volumes:
       - type: bind
-        source: ./data
-        target: /unicorn/data
+        source: D:/Source/GitHub/unicorn/examples/data
+        target: /imports
         read_only: true
     healthcheck:
       test: echo 'db.stats().ok' | mongo mongo --quiet

@@ -53,7 +53,7 @@ Currently there are only 2 of them:
 This is a project I created because I found it useful in my day-2-day dev life, but also a way to play around with shell scripts. Having said that I am no expert when ti comes to writing shell scripts, and I am pretty sure that this one can be optimized or written more nicely, so I will appreciate all the comments.
 
 ## Credits
-Thanks to whom ever made the beautiful ASCII art!!
+Thanks to whom ever made the beautiful ASCII art!!!
 
 ## TODO
 Things that I would like to add in the future:

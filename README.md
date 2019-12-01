@@ -26,7 +26,7 @@ unicorn:
         read_only: true
     healthcheck:
       test: echo 'db.stats().ok' | mongo mongo --quiet
-      interval: 15s
+      interval: 14s
       timeout: 3s
       retries: 3
       start_period: 1s

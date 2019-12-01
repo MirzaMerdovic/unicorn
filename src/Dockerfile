@@ -6,6 +6,6 @@ ADD VERSION .
 
 WORKDIR /unicorn
 
-RUN chmod +x /entrypoint.sh
+RUN chmod +x /unicorn/entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]

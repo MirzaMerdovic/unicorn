@@ -1,5 +1,5 @@
 # Unicorn :unicorn:
-[![Actions Status](https://github.com/mirzamerdovic/unicorn/workflows/CI/badge.svg)](https://github.com/MirzaMerdovic/unicorn/actions)
+[![Actions Status](https://github.com/MirzaMerdovic/unicorn/workflows/CI/badge.svg)](https://github.com/MirzaMerdovic/unicorn/actions)
 
 ## What is it?
 

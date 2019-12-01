@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Publish to Docker Registry
-      uses: MirzaMerdovic/Publish-Docker-Github-Action@master
+      uses: mirzamerdovic/docker-semver-github-action@master
       with:
         name: mirzamerdovic/unicorn
         username: ${{ secrets.DOCKER_USERNAME }}

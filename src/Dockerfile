@@ -1,9 +1,11 @@
 FROM mongo:latest
 
-COPY ./run.sh /unicorn/run.sh
+COPY ./entrypoint.sh /unicorn/entrypoint.sh
 
 ADD VERSION .
 
 WORKDIR /unicorn
 
-CMD ["./run.sh"]
+RUN chmod +x /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]

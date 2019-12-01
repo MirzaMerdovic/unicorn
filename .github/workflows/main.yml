@@ -9,7 +9,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@master
-    - name: Publish to Docker Registry
+    - name: Docker Semver
       uses: mirzamerdovic/docker-semver-github-action@master
       with:
         name: mirzamerdovic/unicorn
@@ -17,4 +17,3 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
         dockerfile: ./src/Dockerfile
         context: ./src
-        semver: 1.0.0

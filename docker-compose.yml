@@ -2,7 +2,7 @@ version: '3.7'
 
 # Templates:
 x-base: &base-service-template
-  #init: true
+  init: true
   networks:
     local:
 

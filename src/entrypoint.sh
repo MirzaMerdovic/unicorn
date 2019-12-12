@@ -61,11 +61,11 @@ configureEnvironment() {
 		RECREATE_COLLECTIONS="false"
 	else
 		RECREATE_COLLECTIONS="$(echo $RECREATE_COLLECTIONS | tr [:upper:] [:lower:])"
-	  
+
 		if [ "$RECREATE_COLLECTIONS" != "false" ] || [ "$RECREATE_COLLECTIONS" != "true" ]; then
 			RECREATE_COLLECTIONS="false"
 		fi;
-	  
+
 		echo WARNING:
 		echo "\t" Collections with matching names will be re-created
 		echo "\t" If you do not want this option set RECREATE_COLLECTIONS environment variable to '"false"' "\n\n"

@@ -15,5 +15,5 @@ jobs:
         name: mirzamerdovic/unicorn
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
-        dockerfile: ./Alembic/Dockerfile
-        context: ./Alembic
+        dockerfile: ./src/Dockerfile
+        context: ./src

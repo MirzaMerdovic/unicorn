@@ -1,6 +1,6 @@
 # Unicorn :unicorn:
 [![Actions Status](https://github.com/MirzaMerdovic/unicorn/workflows/CI/badge.svg)](https://github.com/MirzaMerdovic/unicorn/actions)
-
+[![Docker Pulls](https://img.shields.io/docker/pulls/mirzamerdovic/unicorn)](https://hub.docker.com/r/mirzamerdovic/unicorn)
 ## What is it?
 
 A container based on [offical mongo image](https://hub.docker.com/_/mongo) with a purpose of making a data seeding simple 

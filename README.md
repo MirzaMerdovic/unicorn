@@ -23,7 +23,7 @@ unicorn:
     volumes:
       - type: bind
         source: ./data
-        target: /unicorn/data
+        target: /imports
         read_only: true
     healthcheck:
       test: echo 'db.stats().ok' | mongo mongo --quiet

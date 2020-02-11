@@ -62,7 +62,7 @@ configureEnvironment() {
 	else
 		RECREATE_COLLECTIONS="$(echo $RECREATE_COLLECTIONS | tr [:upper:] [:lower:])"
 
-		if [ "$RECREATE_COLLECTIONS" != "false" ] || [ "$RECREATE_COLLECTIONS" != "true" ]; then
+		if [ "$RECREATE_COLLECTIONS" != "false" ] && [ "$RECREATE_COLLECTIONS" != "true" ]; then
 			RECREATE_COLLECTIONS="false"
 		fi;
 

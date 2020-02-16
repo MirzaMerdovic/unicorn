@@ -8,6 +8,8 @@ validateInptus $MONGO_ADDRESS
 
 configureEnvironment
 
+wiatForServerToBecomeHealthy
+
 echo ENVIRONMENT:
 echo "\t" MONGO_ADDRESS: $MONGO_ADDRESS
 echo "\t" RECREATE_COLLECTIONS: $RECREATE_COLLECTIONS "\n\n"
@@ -71,6 +73,42 @@ configureEnvironment() {
 		echo "\t" If you do not want this option set RECREATE_COLLECTIONS environment variable to '"false"' "\n\n"
 	fi;
 }
+
+wiatForServerToBecomeHealthy() {
+
+	HEALTHY=0;
+	COUNTER=0;
+
+	echo "HEALTHY: $HEALTHY and COUNTER: $COUNTER";
+
+	while [ $HEALTHY = 0 ] && [ $COUNTER -lt 5 ]
+	do
+
+		if [ $COUNTER -gt 0 ];
+		then
+			sleep 5
+		fi;
+
+		COUNTER=$(($COUNTER + 1));
+
+		echo "Starting health check. Try number: $COUNTER"
+		RESULT=$(echo 'db.stats().ok' | mongo $MONGO_ADDRESS --quiet)
+
+		if [ "$RESULT" = "1" ];
+		then
+			HEALTHY=1
+		else
+			echo "Health check failed with error: \n $RESULT \n"
+		fi;
+
+		echo "Finished health check. Server: $MONGO_ADDRESS is healthy: $HEALTHY \n"
+	done;
+
+	if [ $HEALTHY != "1" ];
+	then
+		exit 1;
+	fi;
+};
 
 processDatabase() {
 	DATABASE_INDEX="$(echo "db.getMongo().getDBNames().indexOf('$1')" | mongo "$2" --quiet)"

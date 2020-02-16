@@ -37,11 +37,11 @@ services:
 
   unicorn:
     <<: *base-service-template
-    image: mirzamerdovic/unicorn:latest
+    #image: mirzamerdovic/unicorn:latest
     container_name: unicorn.ctn
-    # build:
-      # context: ./src
-      # dockerfile: Dockerfile
+    build:
+      context: ./src
+      dockerfile: Dockerfile
     environment:
       - MONGO_ADDRESS=mongo:80
       - RECREATE_COLLECTIONS=true
